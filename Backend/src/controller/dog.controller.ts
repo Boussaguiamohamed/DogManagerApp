@@ -21,20 +21,29 @@ router.get("/", async (req, res) => {
 // POST /dogs - Create a new dog
 router.post("/", async (req, res) => {
     try {
-        const { name, age } = req.body; // Get the name and age from the request body
+        const dogs = req.body; // Get the array of dogs from the request body
 
-        const createDog: CreateDog ={
-            name: name,
-            age: age
+        // Validate that the request body is an array
+        if (!Array.isArray(dogs)) {
+            return res.status(400).json({ message: "Expected an array of dogs" });
         }
-        // Create a new dog object
-        const newDog = new Dog(createDog.name, createDog.age);
 
-        await DI.em.persistAndFlush(newDog); // Persist the new dog to the database
+        const newDogs = dogs.map(dog => new Dog(dog.name, dog.age));
 
-        res.status(201).json(newDog); // Respond with the newly created dog
+        await DI.em.persistAndFlush(newDogs); // Persist the new dogs to the database
+
+        res.status(201).json(newDogs); // Respond with the newly created dogs
     } catch (err) {
         res.status(400).json({ message: (err as Error).message });
+    }
+});
+// DELETE /dogs - Delete all dogs
+router.delete("/", async (req, res) => {
+    try {
+        await DI.em.getRepository(Dog).nativeDelete({}); // Remove all dogs from the database
+        res.status(200).json({ message: "All dogs deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ message: (err as Error).message });
     }
 });
 
