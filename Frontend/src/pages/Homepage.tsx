@@ -29,12 +29,8 @@ export const HomePage = () => {
     return (
         <BaseLayout>
             <Center h="full">
-                <Box bg="white" w={600} h={600} boxShadow="lg" borderRadius={10} p={4} border="1px solid orange">
-                    <Box>
-                        <Text fontSize="3xl" as="b" color="Black.900" mb={8} align="center">
-                            Willkommen auf unserer Homepage
-                        </Text>
-                    </Box>
+                <Box bg="white" w={500} h={500} boxShadow="lg" borderRadius={10} p={4} border="1px solid orange">
+                  
                     <Box mt={10}></Box>
                     <Box display="flex" flexDirection="row">
                         <Box flex={1}>
