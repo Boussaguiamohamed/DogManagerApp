@@ -57,7 +57,7 @@ export const HomePage = () => {
                             </form>
                             <Spacer />
                             <Box width={"200px"}>
-                                <Button mt={4} colorScheme="teal" size="lg" width="100%" onClick={handleSubmit(handleRegisterDog)}>
+                                <Button mt={4} colorScheme="teal" size="lg" width="100%" >
                                     Send List to backend
                                 </Button>
                             </Box>
