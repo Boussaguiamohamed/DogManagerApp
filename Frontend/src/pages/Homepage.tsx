@@ -51,7 +51,7 @@ export const HomePage = () => {
                     <Box display="flex" flexDirection="row">
                         <Box flex={1}>
                             <form onSubmit={handleSubmit(handleRegisterDog)}>
-                                <Box mt={1} width={"200px"}>
+                                <Box mt={1} width={"300px"}>
                                     <Text fontSize="xl" color="black">
                                         Name:
                                     </Text>
@@ -59,7 +59,7 @@ export const HomePage = () => {
                                     <Input id="nameInput" placeholder="Enter dog's name" {...register("name", { required: true })} bg={"white"}/>
                                     {errors.name && <Text color="red">Name is required</Text>}
                                 </Box>
-                                <Box mt={4} width={"200px"}>
+                                <Box mt={4} width={"300px"}>
                                     <Text fontSize="xl" color="black">
                                         Age:
                                     </Text>
@@ -67,7 +67,7 @@ export const HomePage = () => {
                                     <Input id="ageInput" placeholder="Enter dog's age" type="number" {...register("age", { required: true })} bg={"white"} />
                                     {errors.age && <Text color="red">Age is required</Text>}
                                 </Box>
-                                <Box width={"200px"}>
+                                <Box width={"300px"}>
                                     {/* Button to register the dog */}
                                     <Button mt={4} colorScheme="teal" size="lg" width="100%" type="submit" disabled={Object.keys(errors).length > 0}>
                                         Register Dog
@@ -75,7 +75,7 @@ export const HomePage = () => {
                                 </Box>
                             </form>
                             <Spacer />
-                            <Box width={"200px"}>
+                            <Box width={"300px"}>
                                 {/* Button to clear the list of dogs */}
                                 <Button mt={4} colorScheme="teal" size="lg" width="100%" 
                                     onClick={() => {
@@ -133,7 +133,7 @@ export const HomePage = () => {
                         {/* Display the list of dogs */}
                         <Box flex={1}  boxShadow="lg" borderRadius={10} p={4} border="1px solid black" bg={"white"}>
                             <Text fontSize="4xl" color="black" align="center">
-                                Dogs:
+                                Dogs: {dogs.length}
                             </Text>
                             <Box mt={5}></Box>
                             {dogs.map((dog, index) => (
