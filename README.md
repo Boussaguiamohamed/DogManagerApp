@@ -39,9 +39,40 @@ DogManagerApp is a application that allows users to add dogs with their age via 
 
 
 ### Backend Setup
+1. Setup the database with Docker:
+   ```sh
+   Docker compose up
+   ```
+2. Navigate to the directory:
+   ```sh
+   cd Backend
+   ```
+3. Create the shema in database:
+   ```sh
+   npm run schema:fresh
+   ```
+4. Install dependencies:
+   ```sh
+   npm install
 
+5. Start the backend server:
+   ```sh
+   npm start
+   ```
 
 ### Frontend Setup
+1. Navigate to the directory:
+   ```sh
+   cd Frontend
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the frontend development server:
+   ```sh
+   npm run dev
+   ```
 
 
 ## Usage
